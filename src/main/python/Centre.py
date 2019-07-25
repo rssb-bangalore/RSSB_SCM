@@ -5,7 +5,6 @@ Created on Tue Jul  9 08:12:23 2019
 @author: Rana Rajput
 """
 from Tab import Tab
-from selenium.webdriver.common.keys import Keys
 import constants
 import XPATH
 
@@ -77,22 +76,22 @@ class Centre(Tab):
 
     def update(self):
         super(Centre, self).update(constants.CHOICE_1)
-        self.tab(reverse = "true").send_inputs("789", clear = "true")
-        self.tab(reverse = "true").send_inputs("012", clear = "true")
+        self.click_element(XPATH.CURRENT_DOCUMENT_LOOKUP_FIELD)
+        self.tab(2, reverse = "true").send_inputs("789", clear = "true")
+        self.tab(reverse = "true").send_inputs("12", clear = "true")
         self.tab(reverse = "true").send_inputs("Update", clear = "true")
-        self.tab(reverse = "true").send_inputs(Keys.DOWN)
+        self.tab(reverse = "true").send_inputs("Non-Agricultural", dropdown = "true")
         self.tab(reverse = "true").send_inputs("Rented", dropdown = "true")
         self.tab(reverse = "true").send_inputs("School", dropdown = "true")
-        self.tab(4, reverse = "true").send_inputs("Remarks: Update Testing", clear = "true")
+        self.tab(reverse = "true").send_inputs("Remarks: Update Testing", clear = "true")
         self.press_button(constants.BUTTON_SAVE, self._tab)
-        self.click_element(XPATH.CURRENT_DOCUMENT_LOOKUP_FIELD)
         self._assert.test_element_value_xpath(XPATH.CENTRE_LOOKUP_FIELD, self.search_input)
         self._assert.test_element_value_xpath(XPATH.DUTY_ALLOCATION_AREA_LOOKUP_FIELD, "Karnataka")
-        self._assert.test_element_value_xpath(XPATH.REMARKS_LOOKUP_FIELD, "Remarks: Insert Testing")
-        self._assert.test_dropdown_value_xpath(XPATH.LAND_TYPE_LOOKUP_FIELD, "Land")
-        self._assert.test_dropdown_value_xpath(XPATH.OWNERSHIP_TYPE_LOOKUP_FIELD, "Leased")
-        self._assert.test_dropdown_value_xpath(XPATH.NATURE_OF_LAND_LOOKUP_FIELD, "Agricultural")
-        self._assert.test_element_value_xpath(XPATH.LAND_EXTENT_LOOKUP_FIELD, "Insert")
-        self._assert.test_element_value_xpath(XPATH.LONGITUDE_LOOKUP_FIELD, "012")
+        self._assert.test_element_value_xpath(XPATH.REMARKS_LOOKUP_FIELD, "Remarks: Update Testing")
+        self._assert.test_dropdown_value_xpath(XPATH.LAND_TYPE_LOOKUP_FIELD, "School")
+        self._assert.test_dropdown_value_xpath(XPATH.OWNERSHIP_TYPE_LOOKUP_FIELD, "Rented")
+        self._assert.test_dropdown_value_xpath(XPATH.NATURE_OF_LAND_LOOKUP_FIELD, "Non-Agricultural")
+        self._assert.test_element_value_xpath(XPATH.LAND_EXTENT_LOOKUP_FIELD, "Update")
+        self._assert.test_element_value_xpath(XPATH.LONGITUDE_LOOKUP_FIELD, "12")
         self._assert.test_element_value_xpath(XPATH.LATITUDE_LOOKUP_FIELD, "789")
 
