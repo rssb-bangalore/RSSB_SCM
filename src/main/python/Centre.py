@@ -45,7 +45,6 @@ class Centre(Tab):
         self.send_inputs(self.search_input, XPATH.CENTRE_LOOKUP_FIELD, clear = "true")
         self.click_select_button(self._tab)
         self.tab(5).send_inputs("Remarks: Insert Testing", clear = "true")
-
         self.tab().send_inputs("Land", dropdown = "true")
         self.tab().send_inputs("Leased", dropdown = "true")
         self.tab().send_inputs("Agricultural", dropdown = "true")
@@ -75,7 +74,7 @@ class Centre(Tab):
         self._assert.test_element_value_xpath(XPATH.TIME,"09:30:00.000")
         self._assert.test_dropdown_value_xpath(XPATH.STATUS, "Active")
         self.click_element(XPATH.CLOSE_BUTTON)
-        
+
     def update(self):
         super(Centre, self).update(constants.CHOICE_1)
         self.tab(reverse = "true").send_inputs("789", clear = "true")
