@@ -95,3 +95,4 @@ class Centre(Tab):
         self._assert.test_element_value_xpath(XPATH.LAND_EXTENT_LOOKUP_FIELD, "Insert")
         self._assert.test_element_value_xpath(XPATH.LONGITUDE_LOOKUP_FIELD, "012")
         self._assert.test_element_value_xpath(XPATH.LATITUDE_LOOKUP_FIELD, "789")
+
