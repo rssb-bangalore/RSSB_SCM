@@ -44,7 +44,10 @@ class Centre(Tab):
         super(Centre, self).insert(constants.CHOICE_1)
         self.send_inputs(self.search_input, XPATH.CENTRE_LOOKUP_FIELD, clear = "true")
         self.click_select_button(self._tab)
-        self.tab(5).send_inputs("Remarks: Insert Testing", clear = "true")
+        self.tab(4)
+        if not self.is_element_active(XPATH.REMARKS_LOOKUP_FIELD):
+            self.tab()
+        self.send_inputs("Remarks: Insert Testing", clear = "true")
         self.tab().send_inputs("Land", dropdown = "true")
         self.tab().send_inputs("Leased", dropdown = "true")
         self.tab().send_inputs("Agricultural", dropdown = "true")
