@@ -105,7 +105,7 @@ class Tab(BrowserBase):
         self.click_search_button(self._tab)
     
     # Method to 
-    def search_query(self, tab, group_no, list_no, choice_no):
+    def query_search(self, tab, group_no, list_no, choice_no):
         self.log("\tPerforming the search with input: " + self.search_input + " on the query/search/select menu for tab: " + tab)
         self.select_group_and_group_choice(tab, group_no, list_no, choice_no)
         self.press_button(constants.BUTTON_QUERY, tab)
@@ -114,7 +114,7 @@ class Tab(BrowserBase):
         self.press_button(constants.BUTTON_GET, tab)
         
     def delete(self, choice_no):
-        self.search_query(self._tab, self._group, self._list_no, choice_no)
+        self.query_search(self._tab, self._group, self._list_no, choice_no)
         self.press_button(constants.BUTTON_DELETE, self._tab)
         self.click_element(XPATH.CONFIRM,"Error while confirming in " + self._tab + " tab")  
         
@@ -123,7 +123,7 @@ class Tab(BrowserBase):
         self.log("\tPerforming the insert with input: " + self.search_input + " on the tab: " + self._tab)
         
     def update(self, choice_no):
-        self.search_query(self._tab, self._group, self._list_no, choice_no)
+        self.query_search(self._tab, self._group, self._list_no, choice_no)
         self.log("\tPerforming the Update with input: " + self.search_input + " on the tab: " + self._tab)
 
     # Method to logout from the browser

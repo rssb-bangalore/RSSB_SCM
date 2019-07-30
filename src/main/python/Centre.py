@@ -19,7 +19,7 @@ class Centre(Tab):
     
     def query_search(self):
         # For Bangalore Centre
-        self.search_query(self._tab, self._group, self._list_no, constants.CHOICE_1)    
+        super(Centre, self).query_search(self._tab, self._group, self._list_no, constants.CHOICE_1)    
         self._assert.test_element_value_xpath(XPATH.CENTRE_LOOKUP_FIELD, self.search_input)
         self._assert.test_element_value_xpath(XPATH.SECRETARY_LOOKUP_FIELD, "name_10000")
         self._assert.test_element_value_xpath(XPATH.ALTERNATE_SEWADAR_LOOKUP_FIELD, "name_10001")
