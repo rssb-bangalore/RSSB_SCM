@@ -17,27 +17,28 @@ class Centre(Tab):
         self._group = "2"
         self._list_no = "2"
     
-    def query_search(self):
+    def query_search(self, choice_no, check_asserts = "true"):
         # For Bangalore Centre
-        super(Centre, self).query_search(self._tab, self._group, self._list_no, constants.CHOICE_1)    
-        self._assert.test_element_value_xpath(XPATH.CENTRE_LOOKUP_FIELD, self.search_input)
-        self._assert.test_element_value_xpath(XPATH.SECRETARY_LOOKUP_FIELD, "name_10000")
-        self._assert.test_element_value_xpath(XPATH.ALTERNATE_SEWADAR_LOOKUP_FIELD, "name_10001")
-        self._assert.test_element_value_xpath(XPATH.FILE_NO_LOOKUP_FIELD, "123")
-        self._assert.test_element_value_xpath(XPATH.DUTY_ALLOCATION_AREA_LOOKUP_FIELD, "Karnataka")
-        self._assert.test_element_value_xpath(XPATH.REMARKS_LOOKUP_FIELD, "Temp")
-        self._assert.test_dropdown_value_xpath(XPATH.LAND_TYPE_LOOKUP_FIELD, "Land")
-        self._assert.test_dropdown_value_xpath(XPATH.OWNERSHIP_TYPE_LOOKUP_FIELD, "Ownership")
-        self._assert.test_dropdown_value_xpath(XPATH.NATURE_OF_LAND_LOOKUP_FIELD, "Agricultural")
-        self._assert.test_element_value_xpath(XPATH.LAND_EXTENT_LOOKUP_FIELD, "1243")
-        self._assert.test_element_value_xpath(XPATH.LONGITUDE_LOOKUP_FIELD, "123")
-        self._assert.test_element_value_xpath(XPATH.LATITUDE_LOOKUP_FIELD, "1234")
-        self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW1_COL1, "1", by = "text")
-        self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW1_COL2, "Sale Deed" , by = "text")
-        self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW1_COL3, "10-Mar-2019", by = "text")
-        self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL1, "2", by = "text")
-        self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL2, "Revenue Records", by = "text")
-        self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL3, "16-Mar-2019", by = "text")
+        super(Centre, self).query_search(choice_no)    
+        if check_asserts == "true":
+            self._assert.test_element_value_xpath(XPATH.CENTRE_LOOKUP_FIELD, self.search_input)
+            self._assert.test_element_value_xpath(XPATH.SECRETARY_LOOKUP_FIELD, "name_10000")
+            self._assert.test_element_value_xpath(XPATH.ALTERNATE_SEWADAR_LOOKUP_FIELD, "name_10001")
+            self._assert.test_element_value_xpath(XPATH.FILE_NO_LOOKUP_FIELD, "123")
+            self._assert.test_element_value_xpath(XPATH.DUTY_ALLOCATION_AREA_LOOKUP_FIELD, "Karnataka")
+            self._assert.test_element_value_xpath(XPATH.REMARKS_LOOKUP_FIELD, "Temp")
+            self._assert.test_dropdown_value_xpath(XPATH.LAND_TYPE_LOOKUP_FIELD, "Land")
+            self._assert.test_dropdown_value_xpath(XPATH.OWNERSHIP_TYPE_LOOKUP_FIELD, "Ownership")
+            self._assert.test_dropdown_value_xpath(XPATH.NATURE_OF_LAND_LOOKUP_FIELD, "Agricultural")
+            self._assert.test_element_value_xpath(XPATH.LAND_EXTENT_LOOKUP_FIELD, "1243")
+            self._assert.test_element_value_xpath(XPATH.LONGITUDE_LOOKUP_FIELD, "123")
+            self._assert.test_element_value_xpath(XPATH.LATITUDE_LOOKUP_FIELD, "1234")
+            self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW1_COL1, "1", by = "text")
+            self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW1_COL2, "Sale Deed" , by = "text")
+            self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW1_COL3, "10-Mar-2019", by = "text")
+            self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL1, "2", by = "text")
+            self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL2, "Revenue Records", by = "text")
+            self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL3, "16-Mar-2019", by = "text")
     
     def insert(self):
         super(Centre, self).insert(constants.CHOICE_1)

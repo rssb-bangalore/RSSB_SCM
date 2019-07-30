@@ -17,8 +17,10 @@ class Preacher(Tab):
         self._group = "4"
         self._list_no = "3"
 
-    def query_search(self):
-        super(Preacher, self).query_search(constants.LOOKUP_SEWADAR, self._group, self._list_no, constants.CHOICE_1)
+    def query_search(self, choice_no, check_asserts = "true"):
+        super(Preacher, self).query_search(choice_no, constants.LOOKUP_SEWADAR)
+        if check_asserts == "true":
+            pass
 
     def insert(self):
         pass

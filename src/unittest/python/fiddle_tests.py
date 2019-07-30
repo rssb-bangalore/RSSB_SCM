@@ -28,7 +28,7 @@ class FiddleTest(TestBase):
     # This will search a particular centre details and check the details are inserted using x path
     def test_3_Centre_Search(self):
         try:
-            Centre("Bangalore").query_search()
+            Centre("Bangalore").query_search(constants.CHOICE_1)
         except Exception as ex:
             self.fail(ex)     
 
@@ -57,7 +57,7 @@ class FiddleTest(TestBase):
     # This will search a sewadar
     def test_7_Preacher_Profile_Search(self):
         try:
-            Preacher("GUL").query_search()
+            Preacher("GUL").query_search(constants.CHOICE_1)
         except Exception as ex:
             self.fail(ex)
 
