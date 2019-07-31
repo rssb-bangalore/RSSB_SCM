@@ -16,14 +16,11 @@ class Assert(BrowserBase):
             print ("\tThe expected value and actual value matches: " + actual_value)
 
     def test_element_value_xpath(self, xpath, expected_value, by="value"):
-        if self.is_element_active(xpath):
-            element = self.get_element_from_xpath(xpath, constants.WAIT_FOR_PRESENCE)
-            if by == "text":
-                self.test_values(expected_value, element.text)
-            else:
-                self.test_values(expected_value, element.get_attribute("value"))
+        element = self.get_element_from_xpath(xpath, constants.WAIT_FOR_PRESENCE)
+        if by == "text":
+            self.test_values(expected_value, element.text)
         else:
-            print("\tELEMENT NOT PRESENT AT XPATH: " + xpath)
+            self.test_values(expected_value, element.get_attribute("value"))
 
     def test_dropdown_value_xpath(self, xpath, expected_value, by="value"):
         selectedItems = self.get_selected_from_dropdown(xpath)
