@@ -21,6 +21,8 @@ CONFIRM = '/html/body/div[4]/div/div/div[2]/button[2]'
 TIME = '//*[@id="time"]'
 STATUS = '//*[@id="status"]'
 MESSAGE_BAR = '"//*[@id="wdf_root_div_id"]/div[4]"'
+BUTTON_SAVE_CENTRE_SCHEDULE = '//*[@id="divCaptureScheduleDetails"]/form/div/div[1]/fieldset/div[5]/div/button[1]'
+
 
 ## LOOKUP FIELDS
 LOOKUP_FIELD = '//*[@id="'+ constants.DUMMY_LOOKUP +'_Id_lookup"]'
@@ -41,6 +43,8 @@ LONGITUDE_LOOKUP_FIELD = '//*[@id="landDetails_longitude"]'
 LATITUDE_LOOKUP_FIELD = '//*[@id="landDetails_latitude"]'
 CURRENT_DOCUMENT_LOOKUP_FIELD = '//*[@id="currentDocument_document_type_Id_lookup"]'
 
+# CENTRE_SCHEDULE 
+CS_INSERT = '//*[@id="wdfScreenFieldSet"]/div/div/form/div[2]/div[2]/fieldset/div/div/div/a/img'
 ## SCREENFIELDS
 SCREENFIELDSET ='//*[@id="wdfScreenFieldSet"]/div/div/form/div[2]/div[2]/fieldset/div'
 SCREENFIELD_INPUT = SCREENFIELDSET + '/div/div/input'

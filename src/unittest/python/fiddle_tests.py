@@ -21,7 +21,7 @@ class FiddleTest(TestBase):
     # This will insert centre details using tab
     def test_2_Centre_Insert(self):
         try:
-            Centre("Gawla").insert()
+            Centre("Gawla").insert(constants.CHOICE_1)
         except Exception as ex:
             self.fail(ex)
             
@@ -35,8 +35,8 @@ class FiddleTest(TestBase):
     # This will update the centre details using shift reverse tab(shift + tab) and test the details are updated using x path
     def test_4_Centre_Update(self):
         try:
-            Centre("Gawla").update() 
-            pass
+            Centre("Gawla").update(choice_no = constants.CHOICE_1)  #6-Aug
+           # pass
         except Exception as ex:
             self.fail(ex)     
     
@@ -47,29 +47,52 @@ class FiddleTest(TestBase):
         except Exception as ex:
             self.fail(ex)
     
-    # This will test search the centre schedule
-    def test_6_Centre_Schedule_Search(self):
+
+
+    def test_7_Centre_Schedule_Insert(self):
         try:
-            Centre("ba").search(constants.CHOICE_2)
+            Centre("Gawla").insert(constants.CHOICE_2)
         except Exception as ex:
             self.fail(ex)
 
+    # This will test search the centre schedule
+    def test_8_Centre_Schedule_Search(self):
+        try:
+            Centre("Gawla").search(constants.CHOICE_2)
+        except Exception as ex:
+            self.fail(ex)
+    
+    # This will test search the centre schedule
+    def test_9_Centre_Schedule_Update(self):
+        try:
+            Centre("Gawla").update(constants.CHOICE_2)
+        except Exception as ex:
+            self.fail(ex)
+
+    # This will test export the centers
+    def test_10_Centre_Schedule_View_Export(self):
+        try:
+            Centre().export(constants.CHOICE_2)
+        except Exception as ex:
+            self.fail(ex)
+
+
     # This will search a sewadar
-    def test_7_Preacher_Profile_Search(self):
+    def test_11_Preacher_Profile_Search(self):
         try:
             Preacher("GUL").query_search(constants.CHOICE_1)
         except Exception as ex:
             self.fail(ex)
 
     # This will test export the preachers
-    def test_8_Preacher_Profile_View_Export(self):
+    def test_12_Preacher_Profile_View_Export(self):
         try:
             Preacher().export(constants.CHOICE_1)
         except Exception as ex:
             self.fail(ex)   
     
     # This will test search the preacher language
-    def test_9_Preacher_Language_Search(self):
+    def test_13_Preacher_Language_Search(self):
         try:
             Preacher("GUL").search(constants.CHOICE_2)
         except Exception as ex:

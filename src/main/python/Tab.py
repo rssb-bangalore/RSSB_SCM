@@ -120,12 +120,23 @@ class Tab(BrowserBase):
         self.press_button(constants.BUTTON_DELETE, self._tab)
         self.click_element(XPATH.CONFIRM,"Error while confirming in " + self._tab + " tab")  
         
-    def insert(self, choice_no):
-        self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
+    def insert(self, choice_no, query_search = "true"):
+        if query_search == "true":
+            self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
+        else:
+                 self.log("\tPerforming the search with input: " + self.search_input + " on the search/select menu for tab: " + self._tab)
+                 self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
+                 self.send_keys_lookup(self._tab, self.search_input)
+                 self.click_select_button(self._tab)
+                 self.click_search_button(self._tab)
+                 #self.search(choice_no, check_asserts = "false")
         self.log("\tPerforming the insert with input: " + self.search_input + " on the tab: " + self._tab)
         
-    def update(self, choice_no):
-        self.query_search(choice_no, check_asserts = "false")
+    def update(self, choice_no, query_search = "true"):
+        if query_search == "true":
+            self.query_search(choice_no, check_asserts = "false")
+        else:
+            self.search(choice_no, check_asserts = "false")
         self.log("\tPerforming the Update with input: " + self.search_input + " on the tab: " + self._tab)
 
     # Method to logout from the browser
