@@ -63,7 +63,6 @@ ERROR_SELECT = "Error while clicking select button: " + DUMMY_TAB + " tab"
 EXECUTOR = "CMD_EXECUTOR"
 USERNAME = "SITE_LOGIN_USER"
 PASSWORD = "SITE_LOGIN_PWD"
-
 ## Console Constants
 TEST_NUMBER_PATTERN = '^test_[0-9 ]*_'
 EMPTY = ''

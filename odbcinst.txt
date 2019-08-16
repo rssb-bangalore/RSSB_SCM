@@ -1,0 +1,8 @@
+[FreeTDS] 
+Description= FreeTDS unixODBC 
+Driver = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so 
+Setup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so
+Trace=Yes
+TraceFile=/tmp/freetds.log
+ForceTrave=Yes
+UsageCount=1

@@ -16,11 +16,7 @@ class Assert(BrowserBase):
             print ("\tThe expected value and actual value matches: " + actual_value)
 
     def test_element_value_xpath(self, xpath, expected_value, by="value"):
-        element = self.get_element_from_xpath(xpath, constants.WAIT_FOR_PRESENCE)
-        if by == "text":
-            self.test_values(expected_value, element.text)
-        else:
-            self.test_values(expected_value, element.get_attribute("value"))
+        self.test_values(expected_value, self.get_element_value_xpath(xpath, by))
 
     def test_dropdown_value_xpath(self, xpath, expected_value, by="value"):
         selectedItems = self.get_selected_from_dropdown(xpath)
@@ -32,3 +28,17 @@ class Assert(BrowserBase):
             assert False, "\tElement was not selected"
         else: 
             print ("\tElement was selected")
+            
+    def test_alert_text(self):
+        element = self.get_alert_element()
+        print (element.text)
+    
+    def test_element_value_xpath1(self, xpath, expected_value, by="value"):
+        print ("I am here")
+        element = self.get_element_from_xpath(xpath, constants.WAIT_FOR_PRESENCE)
+        print (element.text)
+        print (element.get_attribute("value"))
+        if by == "text":
+            self.test_values(expected_value, element.text)
+        else:
+            self.test_values(expected_value, element.get_attribute("value"))

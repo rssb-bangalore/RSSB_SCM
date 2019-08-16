@@ -21,6 +21,8 @@ CONFIRM = '/html/body/div[4]/div/div/div[2]/button[2]'
 TIME = '//*[@id="time"]'
 STATUS = '//*[@id="status"]'
 MESSAGE_BAR = '"//*[@id="wdf_root_div_id"]/div[4]"'
+BUTTON_INSERT = '//*[@id="btnInsert"]'
+ALERT  = '//*[@id="wdf_root_div_id"]/div[4]'
 
 ## LOOKUP FIELDS
 LOOKUP_FIELD = '//*[@id="'+ constants.DUMMY_LOOKUP +'_Id_lookup"]'

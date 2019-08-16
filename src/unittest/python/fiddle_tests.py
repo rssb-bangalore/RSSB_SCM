@@ -21,7 +21,7 @@ class FiddleTest(TestBase):
     # This will insert centre details using tab
     def test_2_Centre_Insert(self):
         try:
-            Centre("Gawla").insert()
+            Centre("Gawla").insert(constants.CHOICE_1)
         except Exception as ex:
             self.fail(ex)
             
@@ -35,7 +35,7 @@ class FiddleTest(TestBase):
     # This will update the centre details using shift reverse tab(shift + tab) and test the details are updated using x path
     def test_4_Centre_Update(self):
         try:
-            Centre("Gawla").update() 
+            Centre("Gawla").update(constants.CHOICE_1) 
             pass
         except Exception as ex:
             self.fail(ex)     

@@ -39,9 +39,14 @@ class Centre(Tab):
             self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL1, "2", by = "text")
             self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL2, "Revenue Records", by = "text")
             self._assert.test_element_value_xpath(XPATH.SCREENFIELDSET_CENTRE_AD_ROW2_COL3, "16-Mar-2019", by = "text")
-    
-    def insert(self):
-        super(Centre, self).insert(constants.CHOICE_1)
+            
+    def delete(self, choice_no):
+        super(Centre, self).delete(choice_no)
+        alert_text = self.get_element_value_xpath(XPATH.ALERT, by = "text")
+        print ("\tALERT: " + alert_text + "\n")
+        
+    def insert(self, choice_no, check_asserts = "true"):
+        super(Centre, self).insert(choice_no)
         self.send_inputs(self.search_input, XPATH.CENTRE_LOOKUP_FIELD, clear = "true")
         self.click_select_button(self._tab)
         self.tab(4)
@@ -55,16 +60,21 @@ class Centre(Tab):
         self.tab().send_inputs("123", clear = "true")
         self.tab().send_inputs("456", clear = "true")
         self.press_button(constants.BUTTON_SAVE, self._tab)
-        self._assert.test_element_value_xpath(XPATH.CENTRE_LOOKUP_FIELD, self.search_input)
-        if self.is_element_active(XPATH.DUTY_ALLOCATION_AREA_LOOKUP_FIELD):
-            self._assert.test_element_value_xpath(XPATH.DUTY_ALLOCATION_AREA_LOOKUP_FIELD, "Karnataka")
-        self._assert.test_element_value_xpath(XPATH.REMARKS_LOOKUP_FIELD, "Remarks: Insert Testing")
-        self._assert.test_dropdown_value_xpath(XPATH.LAND_TYPE_LOOKUP_FIELD, "Land")
-        self._assert.test_dropdown_value_xpath(XPATH.OWNERSHIP_TYPE_LOOKUP_FIELD, "Leased")
-        self._assert.test_dropdown_value_xpath(XPATH.NATURE_OF_LAND_LOOKUP_FIELD, "Agricultural")
-        self._assert.test_element_value_xpath(XPATH.LAND_EXTENT_LOOKUP_FIELD, "Insert")
-        self._assert.test_element_value_xpath(XPATH.LONGITUDE_LOOKUP_FIELD, "123")
-        self._assert.test_element_value_xpath(XPATH.LATITUDE_LOOKUP_FIELD, "456")
+        alert_text = self.get_element_value_xpath(XPATH.ALERT, by = "text")
+        print ("\tALERT: " + alert_text + "\n")
+        if not alert_text.contains("Success"):
+            check_asserts = "false"
+        if check_asserts == "true":
+            self._assert.test_element_value_xpath(XPATH.CENTRE_LOOKUP_FIELD, self.search_input)
+            if self.is_element_active(XPATH.DUTY_ALLOCATION_AREA_LOOKUP_FIELD):
+                self._assert.test_element_value_xpath(XPATH.DUTY_ALLOCATION_AREA_LOOKUP_FIELD, "Karnataka")
+            self._assert.test_element_value_xpath(XPATH.REMARKS_LOOKUP_FIELD, "Remarks: Insert Testing")
+            self._assert.test_dropdown_value_xpath(XPATH.LAND_TYPE_LOOKUP_FIELD, "Land")
+            self._assert.test_dropdown_value_xpath(XPATH.OWNERSHIP_TYPE_LOOKUP_FIELD, "Leased")
+            self._assert.test_dropdown_value_xpath(XPATH.NATURE_OF_LAND_LOOKUP_FIELD, "Agricultural")
+            self._assert.test_element_value_xpath(XPATH.LAND_EXTENT_LOOKUP_FIELD, "Insert")
+            self._assert.test_element_value_xpath(XPATH.LONGITUDE_LOOKUP_FIELD, "123")
+            self._assert.test_element_value_xpath(XPATH.LATITUDE_LOOKUP_FIELD, "456")
         
     def search(self, choice_no):
         super(Centre, self).search(choice_no)
@@ -79,8 +89,8 @@ class Centre(Tab):
         self._assert.test_dropdown_value_xpath(XPATH.STATUS, "Active")
         self.click_element(XPATH.CLOSE_BUTTON)
 
-    def update(self):
-        super(Centre, self).update(constants.CHOICE_1)
+    def update(self, choice_no):
+        super(Centre, self).update(choice_no)
         self.click_element(XPATH.CURRENT_DOCUMENT_LOOKUP_FIELD)
         self.tab(2, reverse = "true").send_inputs("789", clear = "true")
         self.tab(reverse = "true").send_inputs("12", clear = "true")
@@ -89,7 +99,8 @@ class Centre(Tab):
         self.tab(reverse = "true").send_inputs("Rented", dropdown = "true")
         self.tab(reverse = "true").send_inputs("School", dropdown = "true")
         self.tab(reverse = "true").send_inputs("Remarks: Update Testing", clear = "true")
-        self.press_button(constants.BUTTON_SAVE, self._tab)
+        alert_text = self.get_element_value_xpath(XPATH.ALERT, by = "text")
+        print ("\tALERT: " + alert_text + "\n")
         self._assert.test_element_value_xpath(XPATH.CENTRE_LOOKUP_FIELD, self.search_input)
         self._assert.test_element_value_xpath(XPATH.DUTY_ALLOCATION_AREA_LOOKUP_FIELD, "Karnataka")
         self._assert.test_element_value_xpath(XPATH.REMARKS_LOOKUP_FIELD, "Remarks: Update Testing")

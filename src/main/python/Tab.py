@@ -122,6 +122,8 @@ class Tab(BrowserBase):
         
     def insert(self, choice_no):
         self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
+        self.press_button(constants.BUTTON_QUERY, self._tab)
+        self.click_element(XPATH.BUTTON_INSERT)
         self.log("\tPerforming the insert with input: " + self.search_input + " on the tab: " + self._tab)
         
     def update(self, choice_no):

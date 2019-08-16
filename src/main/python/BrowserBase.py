@@ -48,6 +48,14 @@ class BrowserBase(object):
     def is_element_active(self, xpath):
         return self.get_element(xpath) == self.get_element()
     
+    def get_element_value_xpath(self, xpath, by="value"):
+        element = self.get_element_from_xpath(xpath, constants.WAIT_FOR_PRESENCE)
+        if by == "text":
+            value = element.text
+        else:
+            value = element.get_attribute("value")
+        return value
+    
     def tab(self, number_of_times = 1, reverse = "false"):
         i = 0
         while i < number_of_times:
