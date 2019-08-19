@@ -5,7 +5,7 @@ Created on Wed Aug  7 09:42:10 2019
 @author: Rana Rajput
 """
 SERVER = '52.230.87.175' 
-PORT = '1521'
+PORT = '1433'
 DATABASE = 'deraapps_staging' 
 USERNAME = 'dev' 
 PASSWORD = 'xxxxxxxx' 
