@@ -10,6 +10,9 @@ import constants
 import os
 import time
 import sys
+sys.path.append("../../main/python/log")
+from Logger import Log
+sys.path.append("../../main/python/tabs")
 from Tab import Tab
 
 class TestBase(unittest.TestCase):
@@ -21,8 +24,7 @@ class TestBase(unittest.TestCase):
     
     # setup method, called once before all the tests
     @classmethod
-    def setUpClass(self):
-        
+    def setUpClass(self):        
         username = os.getenv(constants.USERNAME,"")
         password = os.getenv(constants.PASSWORD,"")
         """Start web browser"""
@@ -32,14 +34,14 @@ class TestBase(unittest.TestCase):
     # setup method, called before each test
     def setUp(self):
         time.sleep(2)
-        self._browser.log(constants.STARS_START_LINE)
-        self._browser.log(constants.TEST_START  + self.getTestName())
+        Log.info(constants.STARS_START_LINE)
+        Log.info(constants.TEST_START  + self.getTestName())
         
     # This will run at end of each test
     def tearDown(self):
-        self._browser.log(constants.TEST_FINSIH  + self.getTestName())
+        Log.info(constants.TEST_FINSIH  + self.getTestName())
         self.logResult()
-        self._browser.log(constants.STARS_END_LINE)
+        Log.info(constants.STARS_END_LINE)
     
     # This will run at end of all tests 
     @classmethod
@@ -56,6 +58,6 @@ class TestBase(unittest.TestCase):
     # Method to log the result
     def logResult(self):
         if sys.exc_info() == (None, None, None):
-            self._browser.log(constants.TEST_PASS)
+            Log.info(constants.TEST_PASS)
         else:
-            self._browser.log(constants.TEST_FAIL)
+            Log.info(constants.TEST_FAIL)

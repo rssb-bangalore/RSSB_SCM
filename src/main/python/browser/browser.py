@@ -1,6 +1,9 @@
 #!/usr/bin/python
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
+import sys
+sys.path.append("../../main/python/log")
+from Logger import Log
 import os
 import constants
 
@@ -32,7 +35,7 @@ class Browser:
                         )
             except WebDriverException as e:
                 s = "%s" % e
-                print ("Got exception %s" % s)
-                print ("%s" % dir(s))
+                Log.error("Got exception %s" % s)
+                Log.error("%s" % dir(s))
                 if "Empty pool of VM for setup Capabilities" not in s:
                     raise

@@ -23,6 +23,8 @@ STATUS = '//*[@id="status"]'
 MESSAGE_BAR = '"//*[@id="wdf_root_div_id"]/div[4]"'
 BUTTON_INSERT = '//*[@id="btnInsert"]'
 ALERT  = '//*[@id="wdf_root_div_id"]/div[4]'
+BUTTON_SAVE_CENTRE_SCHEDULE = '//*[@id="divCaptureScheduleDetails"]/form/div/div[1]/fieldset/div[5]/div/button[1]'
+
 
 ## LOOKUP FIELDS
 LOOKUP_FIELD = '//*[@id="'+ constants.DUMMY_LOOKUP +'_Id_lookup"]'
@@ -77,3 +79,4 @@ SCREENFIELDSET_CENTRE_AD_ROW2_COL1 =  SCREENFIELDSET_CENTRE_AD + '/table/tbody/t
 SCREENFIELDSET_CENTRE_AD_ROW2_COL2 =  SCREENFIELDSET_CENTRE_AD + '/table/tbody/tr[2]/td[2]'
 SCREENFIELDSET_CENTRE_AD_ROW2_COL3 =  SCREENFIELDSET_CENTRE_AD + '/table/tbody/tr[2]/td[3]'
 SCREENFIELDSET_CENTRE_AD_ROW2_COL4 =  SCREENFIELDSET_CENTRE_AD + '/table/tbody/tr[2]/td[4]'
+CS_INSERT = '//*[@id="wdfScreenFieldSet"]/div/div/form/div[2]/div[2]/fieldset/div/div/div/a/img'

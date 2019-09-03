@@ -4,8 +4,13 @@ Created on Wed Jul 10 20:11:49 2019
 
 @author: Rana Rajput
 """
+import sys
+sys.path.append("../../main/python/browser")
 from BrowserBase import BrowserBase
+sys.path.append("../../main/python/assert")
 from AssertBase import Assert
+sys.path.append("../../main/python/log")
+from Logger import Log
 import constants
 import XPATH
 
@@ -20,17 +25,17 @@ class Tab(BrowserBase):
         try:  
             self._browser.get(url)
         except Exception as ex:
-            self.log(str(ex.message) + errorMsg)
+            Log.erro(str(ex.message) + errorMsg)
     
     def clear(self, element, clear = "false"):
         if clear == "true":
             element.clear()     
 
     # Sends Input keys at selected element
-    def send_inputs(self, keys, xpath = "none", errorMsg = "Error while sending keys: ", clear = "false", dropdown = "false"):
+    def send_inputs(self, keys, xpath = "none", errorMsg = "Error while sending keys: ", clear = "false", dropdown = "false", wait = constants.DONT_WAIT):
         try:
             if dropdown == "true":
-                element = self.get_selected_from_dropdown(xpath)
+                element = self.get_selected_from_dropdown(xpath, wait)
                 self.clear(element, clear)
                 element.select_by_visible_text(keys)
             else:
@@ -39,7 +44,7 @@ class Tab(BrowserBase):
                 element.click()
                 element.send_keys(keys)
         except Exception as ex:
-            self.log(str(ex.message) + errorMsg + keys)
+            Log.error(str(ex.message) + errorMsg + keys)
     
     # Click the element after it is Present & Clickable
     def click_element(self, xpath = "none", errorMsg="Failed to click the button"):
@@ -47,7 +52,7 @@ class Tab(BrowserBase):
             element = self.get_element(xpath, constants.WAIT_FOR_PRESENCE_AND_CLICKABLE)
             element.click()
         except Exception as ex:
-            self.log(str(ex.message) + errorMsg)
+            Log.error(str(ex.message) + errorMsg)
 
     # Select group on the screen
     def select_group(self, group_no, tab):
@@ -66,7 +71,7 @@ class Tab(BrowserBase):
        self.click_element(XPATH.BUTTON.replace(constants.DUMMY_BUTTON, btn),"Error while " + btn + " records for: " + tab + " tab")
     
     def send_keys_lookup(self, lookup_field, keys, clear = "false"):
-        self.send_inputs(keys, XPATH.LOOKUP_FIELD.replace(constants.DUMMY_LOOKUP, lookup_field), clear)
+        self.send_inputs(keys, XPATH.LOOKUP_FIELD.replace(constants.DUMMY_LOOKUP, lookup_field), clear = clear)
     
     def send_keys_id(self, id_field, keys):
         self.send_inputs(keys, XPATH.ID_FIELD.replace(constants.DUMMY_ID, id_field))     
@@ -80,38 +85,38 @@ class Tab(BrowserBase):
     # This method is to login on page, username , password will come from environment
     def login_on_page(self, url, username, password):
         try:
-            self.log("\n\tPerforming login on the browser")
+            Log.info("\n\tPerforming login on the browser")
             self.load_page_in_browser(url, "Error Loading the page")
             self.send_keys_id(constants.FIELD_LOGIN, username)
             self.send_keys_id(constants.FIELD_PASSWORD, password)
             self.click_element(XPATH.LOGIN, "Login Submit Error")
         except Exception as ex:
-            self.log("Exception occurred in login: " + str(ex.message))
+            Log.error("Exception occurred in login: " + str(ex.message))
         
     # Method to test the export
     def export(self, choice_no):
-        self.log("\tPerforming export of the records for tab: " + self._tab)
+        Log.info("\tPerforming export of the records for tab: " + self._tab)
         self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
         self.press_button(constants.BUTTON_QUERY, self._tab)
         self.press_button(constants.BUTTON_GET, self._tab)
         self.click_element(XPATH.EXPORT, constants.ERROR_EXPORT.replace(constants.DUMMY_TAB, self._tab))
     
     # Method to search something in a left hand tab
-    def search(self, choice_no):
-        self.log("\tPerforming the search with input: " + self.search_input + " on the search/select menu for tab: " + self._tab)
+    def search(self, choice_no, clear = "false", input_value=""):
+        Log.info("\tPerforming the search with input: " + self.search_input + " on the search/select menu for tab: " + self._tab)
         self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
-        self.send_keys_lookup(self._tab, self.search_input)
+        self.send_keys_lookup(self._tab, self.search_input, clear)
         self.click_select_button(self._tab)
         self.click_search_button(self._tab)
     
     # Method to 
-    def query_search(self, choice_no, tab = "none"):
+    def query_search(self, choice_no, tab = "none", clear = "false"):
         if tab == "none":
             tab = self._tab
-        self.log("\tPerforming the search with input: " + self.search_input + " on the query/search/select menu for tab: " + self._tab)
+        Log.info("\tPerforming the search with input: " + self.search_input + " on the query/search/select menu for tab: " + self._tab)
         self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
         self.press_button(constants.BUTTON_QUERY, self._tab)
-        self.send_keys_lookup(tab, self.search_input)
+        self.send_keys_lookup(tab, self.search_input, clear)
         self.click_select_button(self._tab)
         self.press_button(constants.BUTTON_GET, self._tab)
         
@@ -120,20 +125,23 @@ class Tab(BrowserBase):
         self.press_button(constants.BUTTON_DELETE, self._tab)
         self.click_element(XPATH.CONFIRM,"Error while confirming in " + self._tab + " tab")  
         
-    def insert(self, choice_no):
-        self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
-        self.press_button(constants.BUTTON_QUERY, self._tab)
-        self.click_element(XPATH.BUTTON_INSERT)
-        self.log("\tPerforming the insert with input: " + self.search_input + " on the tab: " + self._tab)
+    def insert(self, choice_no, query_search = "true"):
+        if query_search == "true":
+            self.select_group_and_group_choice(self._tab, self._group, self._list_no, choice_no)
+            self.press_button(constants.BUTTON_QUERY, self._tab)
+            self.click_element(XPATH.BUTTON_INSERT)
+        else:
+            self.search(choice_no, check_asserts = "false")
+        Log.info("\tPerforming the insert with input: " + self.search_input + " on the tab: " + self._tab)
         
-    def update(self, choice_no):
-        self.query_search(choice_no, check_asserts = "false")
-        self.log("\tPerforming the Update with input: " + self.search_input + " on the tab: " + self._tab)
+    def update(self, choice_no, query_search = "true", input_value=""):
+        if query_search == "true":
+            self.query_search(choice_no, check_asserts = "false")
+        else:
+            self.search(choice_no, check_asserts = "false", input_value = input_value)
+        Log.info("\tPerforming the Update with input: " + self.search_input + " on the tab: " + self._tab)
 
     # Method to logout from the browser
     def logout(self):
-        self.log("\tPerforming Logout")
+        Log.info("\tPerforming Logout")
         self.click_element(XPATH.LOGOUT, "Logout Error")
-    
-    def log(self, input):
-        print (input)

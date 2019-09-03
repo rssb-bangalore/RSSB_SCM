@@ -10,6 +10,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.keys import Keys
 from browser import Browser
+import sys
+sys.path.append("../../main/python/log")
+from Logger import Log
 import time
 import constants
 
@@ -67,5 +70,5 @@ class BrowserBase(object):
         return self
         
     def quit(self):
-        self.log("\tQuitting Browser")
+        Log.info("\tQuitting Browser")
         self._browser.quit()

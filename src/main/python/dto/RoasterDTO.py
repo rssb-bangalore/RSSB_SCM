@@ -4,20 +4,22 @@ Created on Mon Aug  5 09:28:55 2019
 
 @author: Rana Rajput
 """
-
+import sys
+sys.path.append("../log")
+from Logger import Log
 class RoasterDTO:
 
     def __init__(self, dutychart_id = "-1", centre_id = "-1", centre_name = "-1", preacher_id = "-1", sewadar_name = "-1", duty_date = "-1", week = "-1", weekday = "-1", language = "-1", time = "-1"):
-        self.dutychart_id = dutychart_id
-        self.centre_id = centre_id
-        self.centre_name = centre_name
-        self.preacher_id = preacher_id
-        self.sewadar_name = sewadar_name
-        self.duty_date = duty_date
-        self.week = week
-        self.weekday = weekday
-        self.language = language
-        self.time = time
+        self._dutychart_id = dutychart_id
+        self._centre_id = centre_id
+        self._centre_name = centre_name
+        self._preacher_id = preacher_id
+        self._sewadar_name = sewadar_name
+        self._duty_date = duty_date
+        self._week = week
+        self._weekday = weekday
+        self._language = language
+        self._time = time
 
     @property
     def dutychart_id(self):
@@ -100,15 +102,14 @@ class RoasterDTO:
         self._time = time
     
     def toString(self):
-        print("***********************************************"
-              +  "\n\tDuty Chart Id: " + str(self._dutychart_id)
-              + "\n\tCentre Id: " + str(self._centre_id)
-              + "\n\tCentre Name: " + str(self._centre_name)
-              + "\n\tPreacher Id: " + str(self._preacher_id)
-              + "\n\tSewadar Id: " + str(self._sewadar_name)
-              + "\n\tDuty Date: " + str(self._duty_date)
-              + "\n\tWeek: " + str(self._week)
-              + "\n\tWeekday: " + str(self._weekday)
-              + "\n\tLanguage: " + str(self._language)
-              + "\n\tTime: " + str(self._time)
-              + "\n***********************************************")
+        Log.info("Duty Details:")
+        Log.info("\n\r\tDuty Chart Id: " + str(self._dutychart_id) 
+            + "\t\t\tCentre Id: " + str(self._centre_id)
+            + "\t\tCentre Name: " + str(self._centre_name)
+            + "\t\tPreacher Id: " + str(self._preacher_id)
+            + "\tSewadar Name: " + str(self._sewadar_name))
+        Log.info("\n\r\tDuty Date: " + str(self._duty_date)
+            + "\t\tWeek: " + str(self._week)
+            + "\t\tWeekday: " + str(self._weekday)[:3]
+            + "\t\t\tTime: " + str(self._time)
+            + "\tLanguage: " + str(self._language))

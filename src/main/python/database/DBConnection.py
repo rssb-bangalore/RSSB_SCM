@@ -4,31 +4,37 @@ Created on Fri Jul 19 08:52:00 2019
 
 @author: param
 """
+import sys
+sys.path.append("../log")
+from Logger import Log
 import pyodbc
 import DBConstants
+import os
 
 class DBBase:
     cursor = None
     db_connection = None   
     def get_connection(self):
         if self.db_connection is not None:
-            print ('\tDB Connection Successful')
+            Log.debug('\tDB Connection Successful')
             return self.db_connection
         else:
             try:
                 driver = pyodbc.drivers()[0]
-                print("\tConnecting to DB Using Driver: " + driver)
+                Log.debug("\tConnecting to DB Using Driver: " + driver)
+                username = os.getenv("DB_USERNAME","dev")
+                password = os.getenv("DB_PASSWORD","dera@54321")
                 db_connection = pyodbc.connect('DRIVER={' + driver + '};' 
                                                + 'SERVER=' + DBConstants.SERVER +';'
-                                               + 'PORT=' + DBConstants.PORT +';'
+                                               + 'PORT=' + DBConstants.DEFAULT_PORT +';'
                                                + 'DATABASE=' + DBConstants.DATABASE +';'
-                                               + 'UID=' + DBConstants.USERNAME +';'
-                                               + 'PWD=' + DBConstants.PASSWORD)
-                print ('\tDB Connection Successful')
+                                               + 'UID=' + username +';'
+                                               + 'PWD=' + password)
+                Log.debug('\tDB Connection Successful')
                 return db_connection
             except Exception as ex:
-                print (ex)
-                raise Exception('\tNot able to establish a DB Connection')                    
+                Log.error(ex)
+                raise Exception('ERROR: Not able to establish a DB Connection')                    
     
     def close(self, cursor =  None):
         if cursor is not None:
@@ -38,19 +44,16 @@ class DBBase:
         if self.db_connection is not None:
             self.db_connection.close()
             
-    def execute_query(self, query):
+    def execute_query(self, query, use_parameter="false",param="0"):
         cursor = None
         try:
             cursor = self.get_connection().cursor()
-            print ("\tExecuting the query: " + query)
-            cursor.execute(query)     
-            print ('\tQuery was executed successfully')
+            Log.debug("\tExecuting the query: " + query)
+            if use_parameter == "true":
+                cursor.execute(query, param)
+            else:
+                cursor.execute(query)
+            Log.debug('\tQuery was executed successfully')
         except Exception as ex:
-            print (ex)
+            Log.error(ex)
         return cursor
-
-db_conn = DBBase()
-cursor = db_conn.execute_query(DBConstants.ROASTER_QUERY)
-for row in cursor.fetchone():
-    print (row)
-db_conn.close(cursor)

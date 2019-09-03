@@ -1,0 +1,157 @@
+Tue, 03 Sep 2019 04:25:57 INFO     
+ ROASTER TESTING  
+
+Tue, 03 Sep 2019 04:25:57 INFO     
+*********************START OF RECORD************************** 
+
+Tue, 03 Sep 2019 04:25:57 INFO     Duty Details: 
+
+Tue, 03 Sep 2019 04:25:57 INFO     
+	Duty Chart Id: 5510			Centre Id: 2533		Centre Name: Jayanagar		Preacher Id: 11545	Sewadar Name: RAVI GOPALAPPA  
+
+Tue, 03 Sep 2019 04:25:57 INFO     
+	Duty Date: 2019-12-29 00:00:00		Week: Week 5		Weekday: Sun			Time: 09:30:00.0000000	Language: Kannada 
+
+Tue, 03 Sep 2019 04:25:57 INFO     
+Validating Centre details for Centre ID: 2533 , week: Week 5 , weekday: Sunday 
+
+Tue, 03 Sep 2019 04:25:58 INFO     	The expected value and actual value matches ensuring the details of centre are in active status : Active 
+
+Tue, 03 Sep 2019 04:25:58 INFO     	The expected value and actual value matches for centre name in roaster duty and centre schedule : Jayanagar 
+
+Tue, 03 Sep 2019 04:25:58 INFO     	The expected value and actual value matches for time details in roaster duty and centre schedule : 09:30:00.0000000 
+
+Tue, 03 Sep 2019 04:25:58 INFO     	The expected value and actual value matches for language in roaster duty and centre schedule : Kannada 
+
+Tue, 03 Sep 2019 04:25:58 INFO     
+Validating Preacher Details for Preacher ID: 11545 , language: Kannada 
+
+Tue, 03 Sep 2019 04:25:59 INFO     	The expected value and actual value matches ensuring the preacher assigned is in active status : Active 
+
+Tue, 03 Sep 2019 04:25:59 INFO     	The expected value and actual value matches for sewadar name in roaster duty and preacher details : RAVI GOPALAPPA  
+
+Tue, 03 Sep 2019 04:25:59 INFO     
+Validating Preacher Leaves for Preacher ID: 11545 for duty date: 2019-12-29 00:00:00 
+
+Tue, 03 Sep 2019 04:26:00 INFO     Validation not needed, the preacher has not applied for any leaves 
+
+Tue, 03 Sep 2019 04:26:24 INFO     
+ ROASTER TESTING  
+
+Tue, 03 Sep 2019 04:26:24 INFO     
+*********************START OF RECORD************************** 
+
+Tue, 03 Sep 2019 04:26:24 INFO     Duty Details: 
+
+Tue, 03 Sep 2019 04:26:24 INFO     
+	Duty Chart Id: 5510			Centre Id: 2533		Centre Name: Jayanagar		Preacher Id: 11545	Sewadar Name: RAVI GOPALAPPA  
+
+Tue, 03 Sep 2019 04:26:24 INFO     
+	Duty Date: 2019-12-29 00:00:00		Week: Week 5		Weekday: Sun			Time: 09:30:00.0000000	Language: Kannada 
+
+Tue, 03 Sep 2019 04:26:24 INFO     
+Validating Centre details for Centre ID: 2533 , week: Week 5 , weekday: Sunday 
+
+Tue, 03 Sep 2019 04:26:25 INFO     	The expected value and actual value matches ensuring the details of centre are in active status : Active 
+
+Tue, 03 Sep 2019 04:26:25 INFO     	The expected value and actual value matches for centre name in roaster duty and centre schedule : Jayanagar 
+
+Tue, 03 Sep 2019 04:26:25 INFO     	The expected value and actual value matches for time details in roaster duty and centre schedule : 09:30:00.0000000 
+
+Tue, 03 Sep 2019 04:26:25 INFO     	The expected value and actual value matches for language in roaster duty and centre schedule : Kannada 
+
+Tue, 03 Sep 2019 04:26:25 INFO     
+Validating Preacher Details for Preacher ID: 11545 , language: Kannada 
+
+Tue, 03 Sep 2019 04:26:26 INFO     	The expected value and actual value matches ensuring the preacher assigned is in active status : Active 
+
+Tue, 03 Sep 2019 04:26:26 INFO     	The expected value and actual value matches for sewadar name in roaster duty and preacher details : RAVI GOPALAPPA  
+
+Tue, 03 Sep 2019 04:26:26 INFO     
+Validating Preacher Leaves for Preacher ID: 11545 for duty date: 2019-12-29 00:00:00 
+
+Tue, 03 Sep 2019 04:26:27 INFO     Validation not needed, the preacher has not applied for any leaves 
+
+Tue, 03 Sep 2019 04:27:38 INFO     
+ ROASTER TESTING  
+
+Tue, 03 Sep 2019 04:27:38 INFO     
+*********************START OF RECORD************************** 
+
+Tue, 03 Sep 2019 04:27:38 INFO     Duty Details: 
+
+Tue, 03 Sep 2019 04:27:38 INFO     
+	Duty Chart Id: 5510			Centre Id: 2533		Centre Name: Jayanagar		Preacher Id: 11545	Sewadar Name: RAVI GOPALAPPA  
+
+Tue, 03 Sep 2019 04:27:38 INFO     
+	Duty Date: 2019-12-29 00:00:00		Week: Week 5		Weekday: Sun			Time: 09:30:00.0000000	Language: Kannada 
+
+Tue, 03 Sep 2019 04:27:38 INFO     
+Validating Centre details for Centre ID: 2533 , week: Week 5 , weekday: Sunday 
+
+Tue, 03 Sep 2019 04:27:39 INFO     	The expected value and actual value matches ensuring the details of centre are in active status : Active 
+
+Tue, 03 Sep 2019 04:27:39 INFO     	The expected value and actual value matches for centre name in roaster duty and centre schedule : Jayanagar 
+
+Tue, 03 Sep 2019 04:27:39 INFO     	The expected value and actual value matches for time details in roaster duty and centre schedule : 09:30:00.0000000 
+
+Tue, 03 Sep 2019 04:27:39 INFO     	The expected value and actual value matches for language in roaster duty and centre schedule : Kannada 
+
+Tue, 03 Sep 2019 04:27:39 INFO     
+Validating Preacher Details for Preacher ID: 11545 , language: Kannada 
+
+Tue, 03 Sep 2019 04:27:40 INFO     	The expected value and actual value matches ensuring the preacher assigned is in active status : Active 
+
+Tue, 03 Sep 2019 04:27:40 INFO     	The expected value and actual value matches for sewadar name in roaster duty and preacher details : RAVI GOPALAPPA  
+
+Tue, 03 Sep 2019 04:27:40 INFO     
+Validating Preacher Leaves for Preacher ID: 11545 for duty date: 2019-12-29 00:00:00 
+
+Tue, 03 Sep 2019 04:27:41 INFO     Validation not needed, the preacher has not applied for any leaves 
+
+Tue, 03 Sep 2019 04:28:01 INFO     
+ ROASTER TESTING  
+
+Tue, 03 Sep 2019 04:28:01 INFO     
+*********************START OF RECORD************************** 
+
+Tue, 03 Sep 2019 04:28:01 INFO     Duty Details: 
+
+Tue, 03 Sep 2019 04:28:01 INFO     
+	Duty Chart Id: 5510			Centre Id: 2533		Centre Name: Jayanagar		Preacher Id: 11545	Sewadar Name: RAVI GOPALAPPA  
+
+Tue, 03 Sep 2019 04:28:01 INFO     
+	Duty Date: 2019-12-29 00:00:00		Week: Week 5		Weekday: Sun			Time: 09:30:00.0000000	Language: Kannada 
+
+Tue, 03 Sep 2019 04:28:01 INFO     
+Validating Centre details for Centre ID: 2533 , week: Week 5 , weekday: Sunday 
+
+Tue, 03 Sep 2019 04:28:02 INFO     	The expected value and actual value matches ensuring the details of centre are in active status : Active 
+
+Tue, 03 Sep 2019 04:28:02 INFO     	The expected value and actual value matches for centre name in roaster duty and centre schedule : Jayanagar 
+
+Tue, 03 Sep 2019 04:28:02 INFO     	The expected value and actual value matches for time details in roaster duty and centre schedule : 09:30:00.0000000 
+
+Tue, 03 Sep 2019 04:28:02 INFO     	The expected value and actual value matches for language in roaster duty and centre schedule : Kannada 
+
+Tue, 03 Sep 2019 04:28:02 INFO     
+Validating Preacher Details for Preacher ID: 11545 , language: Kannada 
+
+Tue, 03 Sep 2019 04:28:03 INFO     	The expected value and actual value matches ensuring the preacher assigned is in active status : Active 
+
+Tue, 03 Sep 2019 04:28:03 INFO     	The expected value and actual value matches for sewadar name in roaster duty and preacher details : RAVI GOPALAPPA  
+
+Tue, 03 Sep 2019 04:28:03 INFO     
+Validating Preacher Leaves for Preacher ID: 11545 for duty date: 2019-12-29 00:00:00 
+
+Tue, 03 Sep 2019 04:28:03 INFO     Validation not needed, the preacher has not applied for any leaves 
+
+Tue, 03 Sep 2019 04:28:03 INFO     
+Validating Duties for Preacher ID: 11545 for date: 2019-12-29 00:00:00 
+
+Tue, 03 Sep 2019 04:28:03 INFO     	 Validation successful, the preacher has been allotted only one duty for date: 2019-12-29 00:00:00 
+
+Tue, 03 Sep 2019 04:28:03 INFO     
+*********************END OF RECORD****************************
+ 
+
